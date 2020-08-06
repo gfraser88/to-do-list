@@ -7,7 +7,33 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.title {
+  text-align: center;
+}
+
+.input-section {
+  text-align: center;
+}
+
+.row {
+  overflow:auto;
+  text-align: center;
+}
+
+.row div {
+   min-height: 200px;
+}
+.tasks-column {
+  float:left; 
+  width:50%;
+}
+
+.completed-column { 
+  float: right;
+  width: 50%;
+}
+
+.tasks-content, .completed-content {
+  margin: 10px;
+  border: 2px black solid;
 }
