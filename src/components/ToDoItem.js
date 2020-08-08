@@ -1,10 +1,16 @@
 import React from 'react';
 
-function ToDoItem() {
-  return (
-    <div className="to-do-item">
+function ToDoItem(props) {
 
-    </div>
+  function completeTask(e) {
+    e.preventDefault();
+  }
+
+  return (
+    <li className="to-do-item">
+      {props.title}
+      <button class="btn-completed" onClick={completeTask}>Completed</button>
+    </li>
   );
 }
 
