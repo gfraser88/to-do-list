@@ -1,15 +1,45 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function ToDoItem(props) {
+  const [editMode, setEditMode] = useState(false);
+  const [titleEdit, setTitleEdit] = useState(props.title);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function completeTask(e) {
-    e.preventDefault();
+  function completeClick() {
+    props.completeTask(props.taskId); //send selected task id
+  }
+
+  function editModeToggle() {
+    setEditMode(true);
+  }
+
+  function saveEditClick() {
+    if(titleEdit.trim() === "") {
+      setErrorMessage("Task title cannot be blank.");
+    }
+    else {
+      props.saveEdit({id: props.taskId, title: titleEdit}); //send edited task object
+      //reset controls
+      setErrorMessage("");
+      setEditMode(false);
+    }
   }
 
   return (
     <li className="to-do-item">
-      {props.title}
-      <button class="btn-completed" onClick={completeTask}>Completed</button>
+      {editMode ? 
+      <div className="task-container">
+        <input type="text" value={titleEdit} onChange={e => setTitleEdit(e.target.value)}></input>
+        <button className="btn-save" onClick={saveEditClick}>Save</button>
+        <div className="error-message">{errorMessage}</div>
+      </div> 
+      : 
+      <div className="task-container">
+        {props.title}
+        <button className="btn-completed" onClick={completeClick}>Done!</button>
+        <button className="btn-edit" onClick={editModeToggle}>Edit</button>
+      </div>
+      }
     </li>
   );
 }

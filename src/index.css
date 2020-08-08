@@ -38,6 +38,19 @@ body {
   border: 2px black solid;
 }
 
-.tasks-list {
+.tasks-list, .completed-tasks-list {
   text-align: left;
+}
+
+.completed-item {
+  text-decoration: line-through;
+}
+
+.error-message {
+  color: red;
+  font-size: small;
+}
+
+.task-container {
+  display: inline;
 }

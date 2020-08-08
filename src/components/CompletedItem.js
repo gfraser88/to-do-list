@@ -1,11 +1,16 @@
 import React from 'react';
 
 function CompletedItem(props) {
-
-  return (
-    <li className="completed-item">
-      {props.title}
-    </li>
+    
+    function notCompleteClick() {
+        props.uncompleteTask(props.taskId); //send selected task id
+    }
+  
+    return (
+        <li className="completed-item">
+        {props.title}
+        <button className="btn-completed" onClick={notCompleteClick}>Not done yet!</button>
+        </li>
   );
 }
 
