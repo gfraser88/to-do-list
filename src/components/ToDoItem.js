@@ -25,6 +25,14 @@ function ToDoItem(props) {
     }
   }
 
+  function moveUpClick() {
+    props.moveUp(props.index);
+  }
+
+  function moveDownClick() {
+    props.moveDown(props.index);
+  }
+
   return (
     <li className="to-do-item">
       {editMode ? 
@@ -38,6 +46,8 @@ function ToDoItem(props) {
         {props.title}
         <button className="btn btn-completed" onClick={completeClick}>Done!</button>
         <button className="btn btn-edit" onClick={editModeToggle}>Edit</button>
+        {props.totalTasks > 1 && props.index > 0 ? <button className="btn btn-up" onClick={moveUpClick}>Up</button> : ""}
+        {props.totalTasks > 1 && props.index  < (props.totalTasks - 1) ? <button className="btn btn-down" onClick={moveDownClick}>Down</button> : ""}
       </div>
       }
     </li>

@@ -8,6 +8,18 @@ function App() {
   const [taskIdCount, setTaskIdCount] = useState(0); 
   const [completedTasks, setCompletedTasks] = useState([]); //completed task array
 
+  //function to swap array order by index
+  function moveArray(array, old_index, new_index) {
+    if (new_index >= array.length) {
+        var k = new_index - array.length + 1;
+        while (k--) {
+            array.push(undefined);
+        }
+    }
+    array.splice(new_index, 0, array.splice(old_index, 1)[0]);
+    return array;
+};
+
   function addTask(task) {
     setTasks([...tasks, task]); //Add Task to array of tasks
     setTaskIdCount(taskIdCount + 1); //Increase id for next item
@@ -31,6 +43,18 @@ function App() {
     setTasks(newTasks); //update array to copied array
   }
 
+  function moveUp(index) {
+    const newTasks = tasks.slice(); //copy array
+    moveArray(newTasks, index, index-1); //swap with item before it
+    setTasks(newTasks);
+  }
+
+  function moveDown(index) {
+    const newTasks = tasks.slice(); //copy array
+    moveArray(newTasks, index, index+1); //swap with item after it
+    setTasks(newTasks);
+  }
+
   return (
     <div className="App">
       <header className="title">
@@ -44,7 +68,8 @@ function App() {
           <h2>Tasks</h2>
           <div className="tasks-content">
             <ul className="tasks-list">
-            {tasks.map((task, i) => <ToDoItem title={task.title} taskId={task.id} key={i} completeTask={completeTask} saveEdit={updateTask} /> )}
+            {tasks.map((task, i) => <ToDoItem title={task.title} totalTasks={tasks.length} taskId={task.id} index={i} key={i} 
+                                      completeTask={completeTask} saveEdit={updateTask} moveUp={moveUp} moveDown={moveDown} /> )}
             </ul>
           </div>
         </div>
