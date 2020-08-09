@@ -54,3 +54,39 @@ body {
 .task-container {
   display: inline;
 }
+
+.btn, .btn:focus {
+  border: none;
+  background: none;
+  outline: none;
+  font-weight: 700;
+}
+
+.btn-add-task, .btn-add-task:focus {
+  border: 1px black solid;
+  height: 30px;
+  padding: 0 10px;
+}
+
+.btn-add-task:hover {
+  background-color: green;
+}
+
+.txt-task {
+  height: 25px;
+}
+
+.btn-completed:hover, .btn-save:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+.btn-edit:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
+.btn-uncompleted:hover {
+  text-decoration: underline;
+  color: red;
+}

@@ -24,7 +24,7 @@ function Input(props) {
     <div className="input-section">
         <div>Add a new task:</div>
         <input className="txt-task" type="text" value={taskTitle} onChange={e => setTaskTitle(e.target.value)} />
-        <button className="btn-add-task" onClick={addTask}>Add</button>
+        <button className="btn btn-add-task" onClick={addTask}>Add</button>
         <div className="error-message">{errorMessage}</div>
     </div>
   );

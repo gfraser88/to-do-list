@@ -9,7 +9,7 @@ function CompletedItem(props) {
     return (
         <li className="completed-item">
         {props.title}
-        <button className="btn-completed" onClick={notCompleteClick}>Not done yet!</button>
+        <button className="btn btn-uncompleted" onClick={notCompleteClick}>Not done yet!</button>
         </li>
   );
 }

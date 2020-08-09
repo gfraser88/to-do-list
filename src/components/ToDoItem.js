@@ -29,15 +29,15 @@ function ToDoItem(props) {
     <li className="to-do-item">
       {editMode ? 
       <div className="task-container">
-        <input type="text" value={titleEdit} onChange={e => setTitleEdit(e.target.value)}></input>
-        <button className="btn-save" onClick={saveEditClick}>Save</button>
+        <input type="text" className="txt-edit" value={titleEdit} onChange={e => setTitleEdit(e.target.value)}></input>
+        <button className="btn btn-save" onClick={saveEditClick}>Save</button>
         <div className="error-message">{errorMessage}</div>
       </div> 
       : 
       <div className="task-container">
         {props.title}
-        <button className="btn-completed" onClick={completeClick}>Done!</button>
-        <button className="btn-edit" onClick={editModeToggle}>Edit</button>
+        <button className="btn btn-completed" onClick={completeClick}>Done!</button>
+        <button className="btn btn-edit" onClick={editModeToggle}>Edit</button>
       </div>
       }
     </li>
