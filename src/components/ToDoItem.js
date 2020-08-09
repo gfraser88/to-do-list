@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowAltCircleUp, faArrowAltCircleDown} from '@fortawesome/free-solid-svg-icons'
 
 function ToDoItem(props) {
   const [editMode, setEditMode] = useState(false);
@@ -37,17 +39,23 @@ function ToDoItem(props) {
     <li className="to-do-item">
       {editMode ? 
       <div className="task-container">
+        <div>
         <input type="text" className="txt-edit" value={titleEdit} onChange={e => setTitleEdit(e.target.value)}></input>
         <button className="btn btn-save" onClick={saveEditClick}>Save</button>
+        </div>
         <div className="error-message">{errorMessage}</div>
       </div> 
       : 
       <div className="task-container">
-        {props.title}
-        <button className="btn btn-completed" onClick={completeClick}>Done!</button>
-        <button className="btn btn-edit" onClick={editModeToggle}>Edit</button>
-        {props.totalTasks > 1 && props.index > 0 ? <button className="btn btn-up" onClick={moveUpClick}>Up</button> : ""}
-        {props.totalTasks > 1 && props.index  < (props.totalTasks - 1) ? <button className="btn btn-down" onClick={moveDownClick}>Down</button> : ""}
+          <span className="task-title">{props.title}</span>
+          <div className="options">
+            <button className="btn btn-completed" onClick={completeClick}>Done!</button>
+            <button className="btn btn-edit" onClick={editModeToggle}>Edit</button>
+            <button className={props.totalTasks > 1 && props.index > 0 ? "btn btn-up" : "btn btn-up hidden" } onClick={moveUpClick}><FontAwesomeIcon icon={faArrowAltCircleUp} size="lg" /></button>
+            <button className={props.totalTasks > 1 && props.index  < (props.totalTasks - 1) ? "btn btn-down" : "btn btn-down hidden"} onClick={moveDownClick}><FontAwesomeIcon icon={faArrowAltCircleDown} size="lg" /></button>
+            {/* {props.totalTasks > 1 && props.index > 0 ? <button className="btn btn-up hidden" onClick={moveUpClick}><FontAwesomeIcon icon={faArrowAltCircleUp} size="1x" /></button> : ""}
+            {props.totalTasks > 1 && props.index  < (props.totalTasks - 1) ? <button className="btn btn-down hidden" onClick={moveDownClick}><FontAwesomeIcon icon={faArrowAltCircleDown} size="1x" /></button> : ""} */}
+          </div>
       </div>
       }
     </li>

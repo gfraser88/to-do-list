@@ -20,29 +20,29 @@ body {
   text-align: center;
 }
 
-.row div {
-   min-height: 200px;
-}
 .tasks-column {
   float:left; 
   width:50%;
+
 }
 
 .completed-column { 
   float: right;
   width: 50%;
+
 }
 
 .tasks-content, .completed-content {
   margin: 10px;
   border: 2px black solid;
+  min-height: 200px;
 }
 
 .tasks-list, .completed-tasks-list {
   text-align: left;
 }
 
-.completed-item {
+.completed-title {
   text-decoration: line-through;
 }
 
@@ -51,8 +51,26 @@ body {
   font-size: small;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .task-container {
-  display: inline;
+  display: flex;
+  justify-content: space-between;
+}
+
+.to-do-item, .completed-item {
+  margin: 10px;
+  padding: 10px;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+.task-title {
+  font-size: 20px;
 }
 
 .btn, .btn:focus {
@@ -89,4 +107,16 @@ body {
 .btn-uncompleted:hover {
   text-decoration: underline;
   color: red;
+}
+
+.btn-up:hover {
+color: orange;
+}
+
+.btn-down:hover {
+  color: purple;
+}
+
+.hidden {
+  visibility: hidden;
 }

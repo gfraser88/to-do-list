@@ -64,7 +64,7 @@ function App() {
         <Input taskId={taskIdCount} createTask={addTask}/>
       </div>
       <div className="row">
-        <div className="tasks-column">
+        <div className="column tasks-column">
           <h2>Tasks</h2>
           <div className="tasks-content">
             <ul className="tasks-list">
@@ -73,7 +73,7 @@ function App() {
             </ul>
           </div>
         </div>
-        <div className="completed-column">
+        <div className="column completed-column">
           <h2>Completed</h2>
           <div className="completed-content">
             <ul className="completed-tasks-list">
