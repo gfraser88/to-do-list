@@ -10,7 +10,7 @@ function CompletedItem(props) {
         <li className="completed-item">
             <div className="task-container">
                 <span className="completed-title">{props.title}</span>
-                <button className="btn btn-uncompleted" onClick={notCompleteClick}>Not done yet!</button>
+                <button className="btn btn-uncompleted" onClick={notCompleteClick}>Not Done</button>
             </div>
         </li>
   );

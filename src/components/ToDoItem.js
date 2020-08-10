@@ -28,11 +28,11 @@ function ToDoItem(props) {
   }
 
   function moveUpClick() {
-    props.moveUp(props.index);
+    props.moveUp(props.index); //send index position
   }
 
   function moveDownClick() {
-    props.moveDown(props.index);
+    props.moveDown(props.index); //send index position
   }
 
   return (
@@ -49,12 +49,10 @@ function ToDoItem(props) {
       <div className="task-container">
           <span className="task-title">{props.title}</span>
           <div className="options">
-            <button className="btn btn-completed" onClick={completeClick}>Done!</button>
-            <button className="btn btn-edit" onClick={editModeToggle}>Edit</button>
             <button className={props.totalTasks > 1 && props.index > 0 ? "btn btn-up" : "btn btn-up hidden" } onClick={moveUpClick}><FontAwesomeIcon icon={faArrowAltCircleUp} size="lg" /></button>
             <button className={props.totalTasks > 1 && props.index  < (props.totalTasks - 1) ? "btn btn-down" : "btn btn-down hidden"} onClick={moveDownClick}><FontAwesomeIcon icon={faArrowAltCircleDown} size="lg" /></button>
-            {/* {props.totalTasks > 1 && props.index > 0 ? <button className="btn btn-up hidden" onClick={moveUpClick}><FontAwesomeIcon icon={faArrowAltCircleUp} size="1x" /></button> : ""}
-            {props.totalTasks > 1 && props.index  < (props.totalTasks - 1) ? <button className="btn btn-down hidden" onClick={moveDownClick}><FontAwesomeIcon icon={faArrowAltCircleDown} size="1x" /></button> : ""} */}
+            <button className="btn btn-completed" onClick={completeClick}>Done</button>
+            <button className="btn btn-edit" onClick={editModeToggle}>Edit</button>
           </div>
       </div>
       }
